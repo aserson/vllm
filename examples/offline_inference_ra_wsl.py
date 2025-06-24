@@ -40,7 +40,9 @@ relay_attention = True
 # Create an LLM with system prompt
 llm = LLM(model="meta-llama/Llama-2-7b-chat-hf",
           enforce_eager=True,
-          enable_relay_attention=relay_attention)
+          enable_relay_attention=relay_attention,
+          max_model_len=512,
+          gpu_memory_utilization=0.95)
 
 # Create a sampling params object.
 sampling_params = SamplingParams(temperature=0.8, top_p=0.95, max_tokens=256)
